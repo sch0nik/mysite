@@ -12,3 +12,7 @@ poetry install
 make makemigrations
 make migrate
 ```
+- создать файл ".env", пример в ".env.example"
+- изменить его внутри:
+  - SECRET_KEY случайный набор символов, от длинной от 40
+  - DEBUG режим запуска веб-приложния, True для тестирования и отладки, False для работы
