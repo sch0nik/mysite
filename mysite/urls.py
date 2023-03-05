@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from mysite.views import HomePage
+from mysite.views import IndexPage
 
 urlpatterns = [
-    path('', HomePage.as_view(), name='home_page'),
+    path('', IndexPage.as_view(), name='home_page'),
     # path('/word-game', include('apps.word5.urls'), name='word_game'),
     # path('admin/', admin.site.urls),
 ]
