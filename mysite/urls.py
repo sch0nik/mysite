@@ -19,7 +19,7 @@ from django.urls import path, include
 from mysite.views import IndexPage
 
 urlpatterns = [
-    path('', IndexPage.as_view(), name='home_page'),
-    # path('/word-game', include('apps.word5.urls'), name='word_game'),
+    path('', IndexPage.as_view(), name='index'),
+    path('word-game/', include('apps.word5.urls'), name='word_game'),
     # path('admin/', admin.site.urls),
 ]

@@ -1,5 +1,7 @@
 from django.urls import path, include
 
+from apps.word5.views import GameWord
+
 urlpatterns = [
-    path('/', include('apps.word5.urls'), name='word_game'),
+    path('', GameWord.as_view(), name='game_word'),
 ]
