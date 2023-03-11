@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load static %}
+
+{% block face %}
+<div class="jumbotron p-3 p-md-4 text-white rounded bg-dark">
+    <div class="col-md-16 px-0">
+        <h1 class="display-4 font-italic">5 букв.</h1>
+        <ul class="lead my-3">
+            Помощник для игры "5 букв" для Тинькофф.
+            <li>В первом поле вписывается шаблон слова.
+                В шаблоне вместо неизвестных букв ставится символ - " * ",
+                а также желтые буквы.
+            </li>
+            <li>В следующем поле ставятся такие же шаблоны, но только с белыми буквами.
+                ТОЛЬКО с белыми, без желтых и серых.
+                Можно через запятую несколько шаблонов</li>
+            <li>В последнем поле несуществующие буквы, которые серые</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block table %}
+{% endblock %}
+
+{% block main %}
+<main role="main" class="container">
+    <div class="row">
+        <div class="form-group">
+            <form method="get">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <button class="btn btn-primary" type="submit">
+                    Проверить
+                </button>
+                <a class="btn btn-primary" href="{% url 'word_game' %}">
+                    Сбросить
+                </a>
+            </form>
+        </div>
+    </div>
+    {% comment %}
+    <p>template_word - {{ template_word }}</p>
+    <p>valid_char - {{ valid_char }}</p>
+    <p>not_valid_char - {{ not_valid_char }}</p>
+    {% endcomment %}
+    {{ list_word }}
+</main>
+{% endblock %}

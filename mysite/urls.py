@@ -20,6 +20,6 @@ from mysite.views import IndexPage
 
 urlpatterns = [
     path('', IndexPage.as_view(), name='index'),
-    path('word-game/', include('apps.word5.urls'), name='word_game'),
+    path('word-game/', include('apps.word5.urls')),
     # path('admin/', admin.site.urls),
 ]
