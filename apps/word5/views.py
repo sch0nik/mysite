@@ -22,11 +22,11 @@ class WordGame(TemplateView):
         valid_char = request.GET.get('valid_char')
         not_valid_char = request.GET.get('not_valid_char')
 
-        template_word = template_word.strip() if template_word else '*****'
+        template_word = template_word.strip().lower() if template_word else '*****'
         valid_char = valid_char if valid_char else '*****'
         valid_char = valid_char.split(',')
-        valid_char = list(map(lambda x: x.strip(), valid_char))
-        not_valid_char = not_valid_char.strip() if not_valid_char else ''
+        valid_char = list(map(lambda x: x.strip().lower(), valid_char))
+        not_valid_char = not_valid_char.strip().lower() if not_valid_char else ''
 
         # context['template_word'] = template_word
         # context['valid_char'] = valid_char
