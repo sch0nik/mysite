@@ -1,6 +1,3 @@
-import pdb
-
-from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 
 from util.finder import find_word
@@ -27,10 +24,6 @@ class WordGame(TemplateView):
         valid_char = valid_char.split(',')
         valid_char = list(map(lambda x: x.strip().lower(), valid_char))
         not_valid_char = not_valid_char.strip().lower() if not_valid_char else ''
-
-        # context['template_word'] = template_word
-        # context['valid_char'] = valid_char
-        # context['not_valid_char'] = not_valid_char
 
         context['form'] = self.form(
             initial={
