@@ -42,11 +42,14 @@
             </form>
         </div>
     </div>
-    {% comment %}
-    <p>template_word - {{ template_word }}</p>
-    <p>valid_char - {{ valid_char }}</p>
-    <p>not_valid_char - {{ not_valid_char }}</p>
-    {% endcomment %}
-    {{ list_word }}
+    <div class="container text-left">
+        <div class="row">
+            {% for item in list_word %}
+            <div class="col-sm-2 col-xl-1">
+                {{item}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </main>
 {% endblock %}
