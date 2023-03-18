@@ -9,3 +9,6 @@ makemigration:
 
 migrate:
 	@poetry run python manage.py migrate
+
+upgrade:
+	@git pull
