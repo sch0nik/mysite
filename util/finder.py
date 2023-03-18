@@ -22,11 +22,15 @@ def is_matches(sample, list_chars, word):
 def find_word(word, list_chars, not_char, words=None):
     result = []
     for item in words:
-
         if len(item) != len(word):
             continue
 
-        if set(not_char) & set(item):
+        chars = set(not_char) & set(item)
+        if set(not_char) & set(''.join(list_chars)):
+            counter = [item.count(i) for i in chars if item.count(i) > 1]
+            if counter and chars:
+                continue
+        elif chars:
             continue
 
         if not is_matches(word, list_chars, item):
@@ -38,12 +42,12 @@ def find_word(word, list_chars, not_char, words=None):
 
 if __name__ == '__main__':
     # шаблон слова
-    word = '*****'
+    sample = '*****'
     # список букв не на местах
-    words = [
+    list_sample = [
         '*****',
     ]
     # несуществующие буквы
-    not_char = 'вонпм'
+    not_chars = 'вонпм'
 
-    pprint(find_word(word, words, not_char, ['список слов']))
+    pprint(find_word(sample, list_sample, not_chars, ['список слов']))
