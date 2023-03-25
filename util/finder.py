@@ -1,8 +1,8 @@
 from pprint import pprint
 
 
-def is_matches(sample, list_chars, word):
-    for i, j in zip(sample, word):
+def is_matches(template, list_chars, word):
+    for i, j in zip(template, word):
         if i == '*':
             continue
         if i != j:
@@ -21,12 +21,17 @@ def is_matches(sample, list_chars, word):
 
 def find_word(word, list_chars, not_char, words=None):
     result = []
+    bad_char = set(not_char)
     for item in words:
         if len(item) != len(word):
             continue
 
-        chars = set(not_char) & set(item)
-        if set(not_char) & set(''.join(list_chars)):
+        chars = bad_char & set(item)
+        if bad_char & set(word):
+            counter = [item.count(i) for i in chars if item.count(i) > 1]
+            if counter and chars:
+                continue
+        elif bad_char & set(''.join(list_chars)):
             counter = [item.count(i) for i in chars if item.count(i) > 1]
             if counter and chars:
                 continue
