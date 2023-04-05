@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.word5',
+    'apps.avtoradio_info',
     'bootstrap4',
 ]
 

@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load static %}
+
+{% block face %}
+<div class="jumbotron p-3 p-md-4 text-white rounded bg-dark">
+    <div class="col-md-16 px-0">
+        <h1 class="display-4 font-italic">Много денег.</h1>
+        <ul class="lead my-6">
+            Помощник для игры "Много денег" на авторадио.
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block main %}
+<main role="main" class="container">
+    <h4 class="display-8">Последние "секретные" песни.</h4>
+    {% for item in list_song %}
+    <p>{{ item.data }} - {{ item.artist }} - {{ item.title }} - {{ item.summ }}</p>
+    {% endfor %}
+</main>
+{% endblock %}
