@@ -17,9 +17,20 @@
 
 {% block main %}
 <main role="main" class="container">
-    <h4 class="display-8">Последние "секретные" песни.</h4>
-    {% for item in list_song %}
-    <p>{{ item.data }} - {{ item.artist }} - {{ item.title }} - {{ item.summ }}</p>
-    {% endfor %}
+    <p><a class="display-8" href="https://www.avtoradio.ru/money">Игра "Много денег" на авторадио.</a></p>
+    <p><a href="https://www.acrcloud.com/">Сервис распознавания музыки. ACRCloud.</a></p>
+    <p><a href="https://t.me/mnogodenegavtoradio">Группа в телеграм</a></p>
+    <p class="display-8">
+        Телеграм-бот распознает песню и отправляет информацию о ней в группу, в телеграме.
+        Сама песня не отображается в плейлисте на странице "авторадио".
+        Поэтому нужно было определить моменты когда она появляется.
+        После бот записывает небольшой кусок песни и отправляет на распознавание на ACRCloud.
+    </p>
+    {% if list_song %}
+        <h4 class="display-8">Последние "секретные" песни.</h4>
+        {% for item in list_song %}
+            <p>{{ item.data }} - {{ item.artist }} - {{ item.title }} - {{ item.summ }}</p>
+        {% endfor %}
+    {% endif %}
 </main>
 {% endblock %}
