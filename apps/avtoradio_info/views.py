@@ -18,7 +18,7 @@ class AvtoRadioInfo(TemplateView):
             list_song = json.load(open(json_name, 'r'))
         except FileNotFoundError:
             list_song = []
-        context['list_song'] = list_song
+        context['list_song'] = list_song[::-1]
         return context
 
 
