@@ -29,7 +29,7 @@
     {% if list_song %}
         <h4 class="display-8">Последние "секретные" песни.</h4>
         {% for item in list_song %}
-            <p>{{ item.data }} - {{ item.artist }} - {{ item.title }} - {{ item.summ }}</p>
+            <p>{{ item.data }} {{ item.artist }} - {{ item.title }} (текущая сумма денег: {{ item.summ }})</p>
         {% endfor %}
     {% endif %}
 </main>
