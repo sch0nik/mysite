@@ -1,5 +1,5 @@
 start:
-	@poetry run gunicorn -b 192.168.1.200:8081 mysite.wsgi
+	@poetry run gunicorn -w 5 -b 192.168.1.200:8081 mysite.wsgi
 
 start-dev:
 	@poetry run python manage.py runserver
