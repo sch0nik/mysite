@@ -4,14 +4,6 @@
 {% bootstrap_javascript jquery='full' %}
 {% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>Портфолио</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="{%static 'css/blog.css' %}" rel="stylesheet">
-</head>
 <body>
 <div class="container">
 
@@ -45,6 +37,7 @@
                         <p class="card-text mb-auto">Помощник для игры.</p>
                         <a href="{% url 'word_game' %}">Далее...</a>
                     </div>
+<!--                    <img class="card-img-right flex-auto d-none d-md-block" src="{% static 'images/5chars.png' %}" alt="5chars">-->
                 </div>
             </div>
 
@@ -55,12 +48,13 @@
                         <p class="card-text mb-auto">Телеграмм-бот для игры.</p>
                         <a href="{% url 'avtoradio' %}">Далее...</a>
                     </div>
+                    <!--                    <img class="card-img-right flex-auto d-none d-md-block h-md-250 w-md-200" src="{% static 'images/avtoradio.jpg' %}" alt="5chars">-->
                 </div>
             </div>
 
         </div>
+    </main>
 </div>
-</main>
 {% endblock %}
 
 {% comment %}
@@ -88,4 +82,12 @@
       });
     </script>
 </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Портфолио</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="{%static 'css/blog.css' %}" rel="stylesheet">
+</head>
 </html>
