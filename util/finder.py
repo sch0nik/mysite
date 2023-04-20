@@ -20,9 +20,6 @@ def is_matches(template, list_chars, word):
 
 
 def find_word(word, list_chars, not_char, words=None):
-    # слово должно соответствовать шаблону;
-    # буквы из существующих должны быть в слове, но не на тех же местах;
-    # в слове не должно быть букв из несуществующих, но могут быть одинаковые буквы в существующих и не существующих;
     result = []
     bad_letters = set(not_char)
     existing_letters = set(word) | set(''.join(list_chars))
@@ -33,27 +30,19 @@ def find_word(word, list_chars, not_char, words=None):
         if len(item) != len(word):
             continue
 
+        # trio = bad_letters & set(word) & set(''.join(list_chars))
+        # if trio:
+        #     counter = [let for let in trio if item.count(let) >= 3]
+
         if (bad_letters - common_letters) & set(item):
             continue
-        if common_letters:
-            counter = [item for char in common_letters if item.count(char) >= 2]
-            if counter:
-                continue
-        else:
-            if bad_letters & set(item):
-                continue
-
-        # chars = bad_letters & set(item)
-        # if bad_letters & set(word):
-        #     counter = [item.count(i) for i in chars if item.count(i) > 1]
-        #     if counter and chars:
+        # if common_letters:
+        #     counter = [item for char in common_letters if item.count(char) >= 2]
+        #     if counter:
         #         continue
-        # elif bad_letters & set(''.join(list_chars)):
-        #     counter = [item.count(i) for i in chars if item.count(i) > 1]
-        #     if counter and chars:
+        # else:
+        #     if bad_letters & set(item):
         #         continue
-        # elif chars:
-        #     continue
 
         if not is_matches(word, list_chars, item):
             continue
