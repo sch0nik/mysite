@@ -12,3 +12,6 @@ migrate:
 
 upgrade:
 	@git pull
+
+test:
+	@poetry run pytest
