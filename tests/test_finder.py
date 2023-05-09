@@ -32,7 +32,7 @@ def test_non_existence():
 def test_double_letters():
     result = find_word('*****', ['****а'], 'а', WORDS)
     for word in result:
-        assert word.count('а') == 1, word + f", а - {word.count('а')}"
+        assert word.count('а') == 1, word
 
     result = find_word('а****', ['*****'], 'а', WORDS)
     for word in result:
