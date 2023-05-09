@@ -30,14 +30,51 @@ def test_non_existence():
 
 
 def test_double_letters():
-    result = find_word('*****', ['****а'], 'а', WORDS)
-    for word in result:
-        assert word.count('а') == 1, word
+    template = '*****'
+    list_template_exist = ['****а']
+    bad_letter = 'а'
 
-    result = find_word('а****', ['*****'], 'а', WORDS)
-    for word in result:
-        assert word.count('а') == 1, word
+    received = find_word(template, list_template_exist, bad_letter, WORDS)
+    expected = []
+    for item in WORDS:
+        if len(item) != len(template):
+            continue
+        if bad_letter not in item:
+            continue
+        if item[-1] == bad_letter:
+            continue
+        if item.count(bad_letter) > 1:
+            continue
+        expected.append(item)
+    assert received == expected
 
-    result = find_word('****а', ['**а**'], 'а', WORDS)
-    for word in result:
-        assert word.count('а') == 1, word
+    template = 'а****'
+    list_template_exist = ['*****']
+    received = find_word(template, list_template_exist, bad_letter, WORDS)
+    expected = []
+    for item in WORDS:
+        if len(item) != len(template):
+            continue
+        if bad_letter not in item:
+            continue
+        if item[0] != bad_letter:
+            continue
+        if item.count(bad_letter) > 1:
+            continue
+        expected.append(item)
+    assert received == expected
+
+    list_template_exist = ['**а**']
+    received = find_word(template, list_template_exist, bad_letter, WORDS)
+    expected = []
+    for item in WORDS:
+        if len(item) != len(template):
+            continue
+        if bad_letter not in item:
+            continue
+        if item[2] == bad_letter or item[0] != bad_letter:
+            continue
+        if item.count(bad_letter) > 1:
+            continue
+        expected.append(item)
+    assert received == expected
