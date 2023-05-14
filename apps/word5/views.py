@@ -5,7 +5,7 @@ from .forms import WordForm
 
 with open('static/text/russian.txt', 'r') as f:
     list_word = f.readlines()
-LIST_WORD = sorted([item[:-1] for item in list_word])
+LIST_WORD = [item[:-1] for item in list_word]
 
 
 class WordGame(TemplateView):
@@ -32,6 +32,6 @@ class WordGame(TemplateView):
                 'not_valid_char': not_valid_char,
             }
         )
-        context['list_word'] = find_word(template_word, valid_char, not_valid_char, LIST_WORD)
+        context['list_word'] = sorted(find_word(template_word, valid_char, not_valid_char, LIST_WORD))
 
         return self.render_to_response(context)
